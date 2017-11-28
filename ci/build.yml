@@ -26,8 +26,8 @@ run:
     service mysql start
 
 
-    cd pal-tracker/tracker
-    mysql -uroot < databases/create_databases.sql || (service mysql stop && exit 1)
+    cd pal-tracker
+    mysql -uroot < databases/tracker/create_databases.sql || (service mysql stop && exit 1)
 
     chmod +x gradlew
     ./gradlew testMigrate clean build || (service mysql stop && exit 1)
